@@ -1,0 +1,20 @@
+# your_bot_project/requirements.txt
+
+# For asynchronous operations in environments like notebooks
+nest-asyncio
+
+# Core library for data manipulation and analysis
+pandas
+
+# For handling timezones
+pytz
+
+# The unofficial TradingView data provider
+tradingview-datafeed
+
+# The official Python wrapper for the Telegram Bot API
+python-telegram-bot
+
+# Optional: For loading .env files in a local development environment
+# Not needed if you only run on Google Colab
+python-dotenv
