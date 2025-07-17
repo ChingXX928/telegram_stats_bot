@@ -18,7 +18,7 @@ class DataCache:
         self._conn = sqlite3.connect(db_path, check_same_thread=False)
         self._create_table()
         logger.info(f"DataCache initialized with database at '{db_path}'.")
-
+##nothing
     def _create_table(self):
         """Creates the data table if it doesn't exist."""
         # A composite primary key prevents duplicate entries for the same candle.
