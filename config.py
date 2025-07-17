@@ -1,7 +1,7 @@
 # your_bot_project/config.py (更新版)
 
 import os
-import pytz
+from zoneinfo import ZoneInfo
 
 # from dotenv import load_dotenv # 如果在本地端運行，取消註解此行
 # load_dotenv()
@@ -41,7 +41,7 @@ ASSET_EXCHANGE_MAP = {
 }
 
 # --- Timezone Constant ---
-NEW_YORK_TIMEZONE = pytz.timezone('America/New_York')
+NEW_YORK_TIMEZONE = ZoneInfo('America/New_York')
 
 # --- State Constants for User Flow ---
 class State:

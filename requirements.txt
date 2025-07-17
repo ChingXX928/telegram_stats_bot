@@ -6,9 +6,6 @@ nest-asyncio
 # Core library for data manipulation and analysis
 pandas
 
-# For handling timezones
-pytz
-
 # The unofficial TradingView data provider
 tradingview-datafeed
 
@@ -18,3 +15,7 @@ python-telegram-bot
 # Optional: For loading .env files in a local development environment
 # Not needed if you only run on Google Colab
 python-dotenv
+
+# Provides the IANA time zone database for the zoneinfo module.
+# Recommended for cross-platform compatibility.
+tzdata
