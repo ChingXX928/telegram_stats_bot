@@ -1,5 +1,6 @@
 # your_bot_project/main.py (最終修正版)
 
+import os
 import logging
 import nest_asyncio
 
@@ -12,7 +13,7 @@ from telegram.ext import (
 )
 
 # Import configurations and components
-from config import TELEGRAM_BOT_TOKEN, TRADINGVIEW_USERNAME, TRADINGVIEW_PASSWORD
+from config import TELEGRAM_BOT_TOKEN, TRADINGVIEW_USERNAME, TRADINGVIEW_PASSWORD, DATA_DIR
 from services.data_provider import TradingViewDataProvider
 from services.data_cache import DataCache
 from bot.state_manager import StateManager
@@ -42,6 +43,16 @@ def main() -> None:
         return
     if not TRADINGVIEW_USERNAME or not TRADINGVIEW_PASSWORD:
          logger.warning("WARNING: TradingView credentials are not fully set. Data fetching might fail.")
+
+    # --- Environment Setup ---
+    # Ensure the directory for databases or cache files exists.
+    # This prevents the "unable to open database file" error in new/ephemeral environments like Colab.
+    try:
+        os.makedirs(DATA_DIR, exist_ok=True)
+        logger.info(f"Ensured data directory exists at: ./{DATA_DIR}")
+    except OSError as e:
+        logger.critical(f"FATAL: Could not create data directory '{DATA_DIR}': {e}")
+        return
 
     # --- Initialization of Core Components ---
     logger.info("Initializing core components...")

@@ -51,6 +51,11 @@ ASSET_EXCHANGE_MAP = {
     "BTCUSDT": "BINANCE"
 }
 
+# --- File Paths Configuration ---
+# Central place to define directories and file paths
+DATA_DIR = "data"
+DATABASE_PATH = os.path.join(DATA_DIR, "bot_data.db") # Example if you use a single DB
+
 # --- Timezone Constant ---
 NEW_YORK_TIMEZONE = ZoneInfo('America/New_York')
 
