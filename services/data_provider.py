@@ -31,7 +31,8 @@ class TradingViewDataProvider:
                     cls._instance.tv = None # Ensure instance is None on failure
             else:
                 logger.warning("TradingView credentials not provided. Data fetching will likely fail.")
-                cls._instance.tv = TvDatafeed(chromedriver_path=None) # Guest session
+                # Corrected guest session call. The `chromedriver_path` argument is deprecated.
+                cls._instance.tv = TvDatafeed() # Guest session
         return cls._instance
 
     def get_historical_data(self, symbol: str, exchange: str, interval: Interval, n_bars: int):
