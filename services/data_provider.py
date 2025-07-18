@@ -24,7 +24,7 @@ class TradingViewDataProvider:
             if username and password:
                 logger.info("TradingView credentials provided. Attempting to log in...")
                 try:
-                    cls._instance.tv = TvDatafeed(username, password, chromedriver_path=None)
+                    cls._instance.tv = TvDatafeed(username, password)
                     logger.info("Successfully logged into TradingView.")
                 except Exception as e:
                     logger.error(f"Failed to log into TradingView: {e}", exc_info=True)
