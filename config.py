@@ -12,7 +12,7 @@ def get_secret(key, default=None):
     Tries to get a secret from an environment variable first. If not found,
     falls back to Colab userdata. This is more robust for shell execution.
     """
-    # 1. 優先從環境變數讀取
+    # 1. 優先從環境變數讀取12
     value = os.environ.get(key)
     if value:
         return value
